@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffe6f0, #fff0f6);
+    min-height: 100vh;
+}
+
+/* Container utama */
+.container {
+    max-width: 420px;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.25);
+}
+
+/* Judul */
+h1, h2 {
+    color: #d63384;
+    margin-bottom: 15px;
+}
+
+/* Input & select */
+input, select {
+    width: 100%;
+    padding: 13px 15px;
+    margin: 12px 0;
+    border-radius: 14px;
+    border: 1px solid #f3b4cf;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+    border-color: #d63384;
+    box-shadow: 0 0 0 2px rgba(214, 51, 132, 0.2);
+}
+
+/* Button utama */
+button {
+    background: linear-gradient(135deg, #f783ac, #d63384);
+    color: white;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(214, 51, 132, 0.4);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Link */
+a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #d63384;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
