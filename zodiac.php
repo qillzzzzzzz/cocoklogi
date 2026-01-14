@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $zodiac1 = $_POST['zodiac1'];
     $zodiac2 = $_POST['zodiac2'];
 
-    // LOGIKA HITUNG SKOR
     if ($zodiac1 === $zodiac2) {
         $score = 90;
         $message = "Zodiak sama, chemistry kuat ✨";
@@ -42,13 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "Masih bisa jalan, tapi perlu usaha 💕";
     }
 
-    // SIMPAN KE DATABASE
-    $sql = "INSERT INTO result (name1, name2, score, message)
-            VALUES ('$zodiac1', '$zodiac2', $score, '$message')";
-
-    if (!mysqli_query($conn, $sql)) {
-        die("SQL ERROR: " . mysqli_error($conn));
-    }
+    mysqli_query($conn, "
+        INSERT INTO result (name1, name2, score, message)
+        VALUES ('$zodiac1', '$zodiac2', $score, '$message')
+    ");
 
     $last_id = mysqli_insert_id($conn);
     header("Location: result.php?id=$last_id&from=zodiac");
@@ -56,58 +52,77 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php include 'navbar.php'; ?>
-<link rel="stylesheet" href="style.css">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Love by Zodiac</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Love by Zodiac</h2>
+<?php include 'navbar.php'; ?>
 
-<form method="POST">
-    <select name="zodiac1" required>
-        <option value="">Your Zodiac</option>
-        <option>Aries</option>
-        <option>Taurus</option>
-        <option>Gemini</option>
-        <option>Cancer</option>
-        <option>Leo</option>
-        <option>Virgo</option>
-        <option>Libra</option>
-        <option>Scorpio</option>
-        <option>Sagittarius</option>
-        <option>Capricorn</option>
-        <option>Aquarius</option>
-        <option>Pisces</option>
-    </select>
+<div class="home-wrapper">
+    <div class="container love-card">
 
-    <select name="zodiac2" required>
-        <option value="">Partner Zodiac</option>
-        <option>Aries</option>
-        <option>Taurus</option>
-        <option>Gemini</option>
-        <option>Cancer</option>
-        <option>Leo</option>
-        <option>Virgo</option>
-        <option>Libra</option>
-        <option>Scorpio</option>
-        <option>Sagittarius</option>
-        <option>Capricorn</option>
-        <option>Aquarius</option>
-        <option>Pisces</option>
-    </select>
+        <!-- icon kecil seperti ilustrasi -->
+        <div class="love-icon">✧</div>
 
-    <br><br>
-    <button type="submit">Check</button>
-</form>
+        <h1>Love by Zodiac</h1>
 
-<br>
-<a href="pick.php">⬅ Back</a>
+        <p class="subtitle">
+            Choose both zodiacs to see your compatibility
+        </p>
+
+        <form method="POST" class="name-form">
+
+            <select name="zodiac1" class="input-center" required>
+                <option value="">Your Zodiac</option>
+                <option>Aries</option>
+                <option>Taurus</option>
+                <option>Gemini</option>
+                <option>Cancer</option>
+                <option>Leo</option>
+                <option>Virgo</option>
+                <option>Libra</option>
+                <option>Scorpio</option>
+                <option>Sagittarius</option>
+                <option>Capricorn</option>
+                <option>Aquarius</option>
+                <option>Pisces</option>
+            </select>
+
+            <select name="zodiac2" class="input-center" required>
+                <option value="">Partner Zodiac</option>
+                <option>Aries</option>
+                <option>Taurus</option>
+                <option>Gemini</option>
+                <option>Cancer</option>
+                <option>Leo</option>
+                <option>Virgo</option>
+                <option>Libra</option>
+                <option>Scorpio</option>
+                <option>Sagittarius</option>
+                <option>Capricorn</option>
+                <option>Aquarius</option>
+                <option>Pisces</option>
+            </select>
+
+            <!-- tombol utama (SAMA PERSIS) -->
+            <button type="submit" class="btn-start">
+                Check Compatibility
+            </button>
+
+            <!-- tombol back (warna & style sama) -->
+            <a href="pick.php" class="btn-secondary btn-back">
+                ← Back
+            </a>
+
+        </form>
+
+    </div>
+</div>
 
 </body>
 </html>

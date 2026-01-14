@@ -11,7 +11,7 @@
     font-size: 30px;
     cursor: pointer;
     color: white;
-    background: rgba(255,255,255,0.25);
+    background: rgba(255, 0, 81, 0.23);
     padding: 6px 12px;
     border-radius: 12px;
     transition: 0.3s;

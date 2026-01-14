@@ -14,7 +14,7 @@ if (isset($_POST['birth1'])) {
     $days = floor($diff / (60 * 60 * 24));
 
     // 2️⃣ SKOR DASAR DARI TANGGAL
-    $baseScore = 100 - min($days, 60); // makin dekat makin tinggi
+    $baseScore = 100 - min($days, 60);
 
     // 3️⃣ RANDOM KONSISTEN BERBASIS TANGGAL
     $seed = crc32($birth1 . $birth2);
@@ -23,7 +23,7 @@ if (isset($_POST['birth1'])) {
 
     // 4️⃣ SKOR AKHIR
     $score = $baseScore + $randomOffset;
-    $score = max(40, min(100, $score)); // jepit 40–100
+    $score = max(40, min(100, $score));
 
     $message = "Kecocokan berdasarkan tanggal lahir 💖";
 
@@ -40,19 +40,56 @@ if (isset($_POST['birth1'])) {
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Love by Birth Date</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 <?php include 'navbar.php'; ?>
 
+<div class="home-wrapper">
+    <div class="container love-card">
 
-<link rel="stylesheet" href="style.css">
+        <div class="love-icon">♡</div>
 
+        <h1>Love by Birth Date</h1>
 
-<form method="POST">
-    <h2>Love by Birth Date</h2>
+        <p class="subtitle">
+            Enter both birth dates to see your compatibility
+        </p>
 
-    <input type="date" name="birth1" required>
-    <input type="date" name="birth2" required>
+        <form method="POST" class="name-form">
 
-    <button type="submit">Check</button>
-</form>
+            <input
+                type="date"
+                name="birth1"
+                class="input-center"
+                required
+            >
 
-<a href="pick.php">⬅ Back</a>
+            <input
+                type="date"
+                name="birth2"
+                class="input-center"
+                required
+            >
+
+            <button type="submit" class="btn-start">
+                Check Compatibility
+            </button>
+
+            <a href="pick.php" class="btn-secondary btn-back">
+                ← Back
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,11 +1,9 @@
 <?php
 include 'db.php';
 
-// aktifkan error biar kelihatan jelas (boleh dihapus nanti)
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// cek id
 if (!isset($_GET['id'])) {
     die("ID tidak ditemukan. Akses lewat form.");
 }
@@ -22,25 +20,56 @@ if ($from == 'zodiac') {
     $backPage = 'pick.php';
 }
 
-$id = intval($_GET['id']); // biar aman
+$id = intval($_GET['id']);
 
 $query = mysqli_query($conn, "SELECT * FROM result WHERE id = $id");
-
-if (!$query) {
-    die("Query error");
-}
-
 $data = mysqli_fetch_assoc($query);
-
-if (!$data) {
-    die("Data tidak ditemukan");
-}
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Love Score</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 <?php include 'navbar.php'; ?>
 
-<h1>Your Love Score</h1>
-<h2><?php echo $data['score']; ?>%</h2>
-<p><?php echo $data['message']; ?></p>
+<div class="home-wrapper">
+    <div class="container love-card">
 
-<a href="<?php echo $backPage; ?>">Try Again</a>
-<a href="pick.php">⬅ Back to Pick Method</a>
+        <div class="love-icon">♡</div>
+
+        <h1>Your Love Score</h1>
+
+        <!-- PERCENT CIRCLE -->
+        <div class="circle-wrapper">
+            <div 
+                class="percent-circle"
+                style="--percent: <?php echo $data['score']; ?>;"
+            >
+                <span><?php echo $data['score']; ?>%</span>
+            </div>
+        </div>
+
+        <p class="subtitle">
+            <?php echo $data['message']; ?>
+        </p>
+
+        <div class="btn-group">
+            <a href="<?php echo $backPage; ?>" class="btn-start">
+                Try Again
+            </a>
+
+            <a href="pick.php" class="btn-secondary btn-back">
+                ⬅ Back to Pick Method
+            </a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
