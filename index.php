@@ -9,19 +9,22 @@
 
 <?php include 'navbar.php'; ?>
 
-<div class="container">
-    <h1>💖 Love Calculator</h1>
+<div class="home-wrapper">
+    <div class="love-card">
+        <h1>Love Compatibility</h1>
 
-    <p>
-        Hitung tingkat kecocokan cintamu dengan pasangan 💕  
-        berdasarkan <b>nama</b>, <b>zodiak</b>, atau <b>tanggal lahir</b>.
-    </p>
+        <p class="subtitle">
+            Because every love story deserves to be written 💕
+        </p>
 
-    <br>
+        <a href="pick.php" class="btn-primary">
+            Start Test
+        </a>
 
-    <a href="pick.php">
-        <button>Start Calculate 💘</button>
-    </a>
+        <a href="pick.php" class="btn-secondary">
+            Choose Your Method
+        </a>
+    </div>
 </div>
 
 </body>
