@@ -36,6 +36,7 @@ if (!$data) {
     die("Data tidak ditemukan");
 }
 ?>
+<?php include 'navbar.php'; ?>
 
 <h1>Your Love Score</h1>
 <h2><?php echo $data['score']; ?>%</h2>
