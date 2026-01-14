@@ -7,6 +7,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 1000;
 }
 
 .navbar h2 {
@@ -29,6 +31,7 @@
     background: #ff69b4;
     padding: 20px;
     transition: 0.3s;
+    z-index: 999;
 }
 
 .menu a {
@@ -45,7 +48,7 @@
 </style>
 
 <div class="navbar">
-    <h2>💖 LoveCalc</h2>
+    <h2>💖 LoveCalculator</h2>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
 </div>
 

@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     background: linear-gradient(135deg, #fde2e8, #f9c5d1);
     font-family: 'Arial', sans-serif;
+    padding-top: 70px; /* biar navbar ga nutupin */
 }
 
 /* HOME WRAPPER */
