@@ -1,24 +1,25 @@
 <style>
-/* NAVBAR */
-.navbar {
-    background: hotpink;
-    color: white;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 1000;
-}
 
-.navbar h2 {
-    margin: 0;
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* pindah ke kanan */
+    padding: 15px;
 }
 
 /* HAMBURGER */
 .hamburger {
-    font-size: 26px;
+    font-size: 30px;
     cursor: pointer;
+    color: white;
+    background: rgba(255,255,255,0.25);
+    padding: 6px 12px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.hamburger:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
 }
 
 /* MENU */
@@ -48,7 +49,6 @@
 </style>
 
 <div class="navbar">
-    <h2>💖 LoveCalculator</h2>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
 </div>
 

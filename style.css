@@ -88,3 +88,119 @@ button:hover {
         transform: translateY(0);
     }
 }
+
+.home-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.love-card {
+    position: relative;
+}
+
+.love-icon {
+    font-size: 28px;
+    color: #d63384;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #b05a7a;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.btn-group a {
+    display: block;
+    margin-top: 12px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #f7a1c4, #d63384);
+    color: #fff;
+    padding: 15px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(214, 51, 132, 0.35);
+}
+
+.btn-secondary {
+    border: 1px solid #f2b6cf;
+    color: #d63384;
+    padding: 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    background: rgba(255,255,255,0.7);
+}
+
+.footer-text {
+    margin-top: 22px;
+    font-size: 12px;
+    color: #c98aa6;
+}
+
+/* START TEST BUTTON (ilustrasi style) */
+.btn-start {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* efek glow lembut */
+.btn-start::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+        120deg,
+        #ffd6e8,
+        #f7a1c4,
+        #ffd6e8
+    );
+    opacity: 0.6;
+    filter: blur(10px);
+    z-index: 0;
+}
+
+/* isi tombol */
+.btn-start {
+    background: linear-gradient(135deg, #f7a1c4, #d63384);
+    color: white;
+    padding: 16px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 10px 28px rgba(214, 51, 132, 0.4);
+    z-index: 1;
+}
+
+/* teks di atas efek */
+.btn-start span,
+.btn-start {
+    position: relative;
+    z-index: 2;
+}
+
+/* animasi hover */
+.btn-start:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 18px 40px rgba(214, 51, 132, 0.5);
+}
+
+/* animasi pulse halus */
+@keyframes softPulse {
+    0% { box-shadow: 0 0 0 0 rgba(214, 51, 132, 0.4); }
+    70% { box-shadow: 0 0 0 14px rgba(214, 51, 132, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(214, 51, 132, 0); }
+}
+
+.btn-start {
+    animation: softPulse 2.5s infinite;
+}
