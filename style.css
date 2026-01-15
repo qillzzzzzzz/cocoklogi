@@ -380,3 +380,14 @@ button:hover {
     width: 260px;
     text-align: center;
 }
+
+/* For screens smaller than 480px (e.g., mobile phones) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        background-image: url('bg-mobile.jpg'); /* Use mobile background image */
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll; /* Allow background to scroll on mobile */
+    }
+
